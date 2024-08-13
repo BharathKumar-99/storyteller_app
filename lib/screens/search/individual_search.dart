@@ -5,6 +5,7 @@ import 'package:storyteller/model/story_model.dart';
 
 import '../../constants/image_constnats.dart';
 import '../../initilizing/supabase.dart';
+import '../../util/ads/interstler_ads.dart';
 import '../widgets/story_card.dart';
 
 class IndividualSearchScreen extends StatefulWidget {
@@ -18,9 +19,16 @@ class IndividualSearchScreen extends StatefulWidget {
 class _IndividualSearchScreenState extends State<IndividualSearchScreen> {
   String title = '';
   List<StoryModel> stories = [];
+  bool isLoaded = false;
 
   @override
   void initState() {
+    InterstitialExampleState().loadAd((ad) {
+      setState(() {
+        isLoaded = true;
+      });
+      ad.dispose();
+    });
     getStories();
     super.initState();
   }
@@ -48,7 +56,7 @@ class _IndividualSearchScreenState extends State<IndividualSearchScreen> {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: stories.isEmpty
+      body: stories.isEmpty || !isLoaded
           ? const Center(
               child: CircularProgressIndicator(),
             )

@@ -53,6 +53,10 @@ class StringConstants {
   static String title = "Title";
   static String story = "Story";
   static String selectTag = "Select Tags";
+  static String approvalPending = "Approval Pending";
+  static String rejected = "Rejected";
+  static String approved =
+      "Your story will be unveiled once it receives our seal of approval. Please allow up to 24 hours for it to find its place among the others.";
 
 //login
   static String signInMsg = "Sign in an account";

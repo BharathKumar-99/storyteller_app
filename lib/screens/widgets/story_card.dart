@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:storyteller/constants/image_constnats.dart';
+import 'package:storyteller/constants/string_constants.dart'; 
 import 'package:storyteller/util/routes/routes_constants.dart';
 
 class StoryCardWidget extends StatelessWidget {
   final String title;
   final String image;
   final int id;
+  final bool? isApproved;
+  final bool? cancelled;
 
   const StoryCardWidget(
-      {super.key, required this.title, required this.image, required this.id});
+      {super.key,
+      required this.title,
+      required this.image,
+      required this.id,
+      this.cancelled,
+      this.isApproved});
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +77,44 @@ class StoryCardWidget extends StatelessWidget {
                 ),
               ),
             ),
+            if (cancelled == true)
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.7),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.error, color: Colors.red),
+                    Text(
+                      StringConstants.rejected,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    )
+                  ],
+                )),
+              ),
+            if (isApproved == false && cancelled == false)
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.7),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.warning, color: Colors.red),
+                    Text(
+                      StringConstants.approvalPending,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    )
+                  ],
+                )),
+              )
           ],
         ),
       ),

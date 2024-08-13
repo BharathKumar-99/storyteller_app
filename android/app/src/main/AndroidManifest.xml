@@ -4,9 +4,9 @@
 <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
 <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
     <application
-        android:label="story_space"
+        android:label="Story Space"
         android:name="${applicationName}"
-        android:icon="@mipmap/launcher_icon">      
+        android:icon="@mipmap/ic_launcher">      
 
         <activity
             android:name=".MainActivity"
@@ -35,6 +35,10 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+             <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-9432342709977760~2549887819"/>
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and

@@ -7,17 +7,18 @@ class StoryModel {
   String? userid;
   bool? approved;
   int? views;
+  bool? cancelled;
 
-  StoryModel({
-    this.id,
-    this.createdAt,
-    this.title,
-    this.pic,
-    this.story,
-    this.userid,
-    this.approved,
-    this.views,
-  });
+  StoryModel(
+      {this.id,
+      this.createdAt,
+      this.title,
+      this.pic,
+      this.story,
+      this.userid,
+      this.approved,
+      this.views,
+      this.cancelled});
 
   StoryModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -28,6 +29,7 @@ class StoryModel {
     userid = json['user_id'];
     approved = json['approved'];
     views = json['views'];
+    cancelled = json['cancelled'];
   }
 
   Map<String, dynamic> toJson() {
@@ -55,6 +57,9 @@ class StoryModel {
     }
     if (views != null) {
       data['views'] = views;
+    }
+    if (cancelled != null) {
+      data['cancelled'] = cancelled;
     }
 
     return data;

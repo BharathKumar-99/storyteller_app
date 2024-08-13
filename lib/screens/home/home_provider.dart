@@ -21,9 +21,7 @@ class HomeProvider extends ChangeNotifier {
       userModel = await SupaBaseCalls().getuserDetails();
       continuedStories =
           userModel.continuedStoriesId?.map((e) => e.story!).toList() ?? [];
-
       notifyListeners();
-
       await SupaFlow.client.rpc(TableConstants.fetchStories, params: {
         TableConstants.fetchStoriesParam:
             userModel.usersTags?.map((e) => e.tagId).toList()
@@ -36,10 +34,8 @@ class HomeProvider extends ChangeNotifier {
           });
         });
       });
-
       stories = mergeStoriesByTags(tempStories);
       notifyListeners();
-
       isLoading = false;
       notifyListeners();
     } catch (e) {
@@ -51,7 +47,6 @@ class HomeProvider extends ChangeNotifier {
       List<Map<String, List<StoryModel>>> tempStories) {
     Map<String, List<StoryModel>> mergedMap = {};
     Set<int> addedStoryIds = {};
-
     for (var storyMap in tempStories) {
       storyMap.forEach((tag, storiesList) {
         if (!mergedMap.containsKey(tag)) {
@@ -65,7 +60,6 @@ class HomeProvider extends ChangeNotifier {
         }
       });
     }
-
     return mergedMap.entries.map((entry) => {entry.key: entry.value}).toList();
   }
 }

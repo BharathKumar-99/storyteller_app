@@ -15,6 +15,8 @@ class SignupProvider extends ChangeNotifier {
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
   TextEditingController usernameController = TextEditingController();
+  bool passwordObscureText = true;
+  bool confirmPasswordObscureText = true;
   bool isAdmin = false;
 
   void signup(BuildContext context) {

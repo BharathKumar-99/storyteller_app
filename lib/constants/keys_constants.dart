@@ -6,6 +6,10 @@ class KeyConstants {
 
   static const String SUPABASE_URL = 'https://tjlxmgutomtscjluoapn.supabase.co';
 
+  static const String interstlerAddKey =
+      'ca-app-pub-9432342709977760/5547221283';
+  static const String bannerAddKey = 'ca-app-pub-9432342709977760/8979602786';
+
   static const String tags = 'tags';
   static const String userName = 'userName';
   static const String isTagsSelected = 'isTagsSelected';

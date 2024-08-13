@@ -1,7 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter/material.dart'; 
 import 'package:go_router/go_router.dart';
 import 'package:storyteller/constants/string_constants.dart';
 import 'package:storyteller/constants/table_constants.dart';
@@ -53,37 +52,37 @@ class _SearchScreenState extends State<SearchScreen> {
                 SizedBox(
                   height: height * 0.02,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        contentPadding:
-                            const EdgeInsets.symmetric(horizontal: 20),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(color: Colors.grey.shade400),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(color: Colors.grey.shade400),
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(color: Colors.grey.shade400),
-                        ),
-                        prefixIconConstraints: const BoxConstraints(
-                          maxHeight: 25,
-                        ),
-                        hintText: StringConstants.search,
-                        prefixIcon: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 6.0),
-                          child: SvgPicture.asset(
-                            'assets/icons/search.svg',
-                            color: Colors.grey.shade400,
-                          ),
-                        )),
-                  ),
-                ),
+                // Padding(
+                //   padding: const EdgeInsets.all(10.0),
+                //   child: TextField(
+                //     decoration: InputDecoration(
+                //         contentPadding:
+                //             const EdgeInsets.symmetric(horizontal: 20),
+                //         enabledBorder: OutlineInputBorder(
+                //           borderRadius: BorderRadius.circular(8),
+                //           borderSide: BorderSide(color: Colors.grey.shade400),
+                //         ),
+                //         focusedBorder: OutlineInputBorder(
+                //           borderRadius: BorderRadius.circular(8),
+                //           borderSide: BorderSide(color: Colors.grey.shade400),
+                //         ),
+                //         border: OutlineInputBorder(
+                //           borderRadius: BorderRadius.circular(8),
+                //           borderSide: BorderSide(color: Colors.grey.shade400),
+                //         ),
+                //         prefixIconConstraints: const BoxConstraints(
+                //           maxHeight: 25,
+                //         ),
+                //         hintText: StringConstants.search,
+                //         prefixIcon: Padding(
+                //           padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                //           child: SvgPicture.asset(
+                //             'assets/icons/search.svg',
+                //             color: Colors.grey.shade400,
+                //           ),
+                //         )),
+                //   ),
+                // ),
                 SizedBox(
                   height: height * 0.03,
                 ),

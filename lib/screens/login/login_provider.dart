@@ -16,6 +16,7 @@ import '../../util/routes/routes_constants.dart';
 class LoginProvider extends ChangeNotifier {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  bool obscureText = true;
 
   void login(BuildContext context) {
     if (emailController.text.isEmpty) {

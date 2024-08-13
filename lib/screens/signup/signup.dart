@@ -87,7 +87,21 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       TextField(
                         controller: value.passwordController,
+                        obscureText: value.passwordObscureText,
                         decoration: InputDecoration(
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                value.passwordObscureText
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  value.passwordObscureText =
+                                      !value.passwordObscureText;
+                                });
+                              },
+                            ),
                             hintText: StringConstants.passwordHint),
                       ),
                       const SizedBox(
@@ -95,7 +109,21 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       TextField(
                         controller: value.confirmPasswordController,
+                        obscureText: value.confirmPasswordObscureText,
                         decoration: InputDecoration(
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                value.confirmPasswordObscureText
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  value.confirmPasswordObscureText =
+                                      !value.confirmPasswordObscureText;
+                                });
+                              },
+                            ),
                             hintText: StringConstants.confirmPasswordHint),
                       ),
                       const SizedBox(

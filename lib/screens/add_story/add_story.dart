@@ -106,6 +106,33 @@ class _AddStoryScreenState extends State<AddStoryScreen> {
                       SizedBox(
                         height: height * 0.03,
                       ),
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Theme.of(context)
+                                .colorScheme
+                                .primary
+                                .withOpacity(0.7)),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.help_outline_rounded),
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 10.0),
+                                child: Text(
+                                  StringConstants.approved,
+                                  maxLines: 5,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: height * 0.03,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -148,7 +175,10 @@ class _AddStoryScreenState extends State<AddStoryScreen> {
                             ),
                           ),
                         ],
-                      )
+                      ),
+                      SizedBox(
+                        height: height * 0.13,
+                      ),
                     ],
                   ),
                 ),

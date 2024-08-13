@@ -1,6 +1,7 @@
 class RouteConstants {
   static const String home = '/';
   static const String login = '/login';
+  static const String forgotPassword = '/forgotPassword';
   static const String register = '/register';
   static const String tagScreen = '/selectTags';
   static const String storyScreen = '/storyScreen';

@@ -8,6 +8,7 @@ import 'package:storyteller/screens/signup/signup.dart';
 import 'package:storyteller/screens/story_screen/story_screen.dart';
 import 'package:storyteller/screens/tags/tags.dart';
 import '../../screens/dashboard/dashboard.dart';
+import '../../screens/forgot_password/forgot_password.dart';
 import '../../screens/profile/profile_screen.dart';
 import '../../screens/search/individual_search.dart';
 import '../../screens/search/search_screen.dart';
@@ -23,12 +24,22 @@ class Routes {
       final isLoggedIn = AppConstants().isLoggedIn;
       final isGoingToLogin = state.uri.toString() == RouteConstants.login;
       final isGoingToRegister = state.uri.toString() == RouteConstants.register;
+      final isGoingToForgot =
+          state.uri.toString() == RouteConstants.forgotPassword;
 
-      if (!isLoggedIn && !isGoingToLogin && !isGoingToRegister) {
+      if (!isLoggedIn &&
+          !isGoingToLogin &&
+          !isGoingToRegister &&
+          !isGoingToForgot) {
         return RouteConstants.login;
-      } else if (!isLoggedIn && !isGoingToLogin && isGoingToRegister) {
+      } else if (!isLoggedIn &&
+          !isGoingToLogin &&
+          isGoingToRegister &&
+          !isGoingToForgot) {
         return RouteConstants.register;
-      } else if (isLoggedIn && !AppConstants().isTagsSelected) {
+      } else if (!isLoggedIn && !isGoingToLogin && isGoingToForgot) {
+        return RouteConstants.forgotPassword;
+      } else if (isLoggedIn && !(AppConstants().isTagsSelected ?? true)) {
         return RouteConstants.tagScreen;
       } else if (isLoggedIn && (isGoingToLogin || isGoingToRegister)) {
         return null;
@@ -39,6 +50,10 @@ class Routes {
       GoRoute(
         path: RouteConstants.login,
         builder: (context, state) => const LoginScreen(),
+      ),
+      GoRoute(
+        path: RouteConstants.forgotPassword,
+        builder: (context, state) => const ForgotPasswordScreen(),
       ),
       GoRoute(
         path: RouteConstants.register,

@@ -58,21 +58,37 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               TextField(
                 controller: value.passwordController,
-                decoration:
-                    InputDecoration(hintText: StringConstants.passwordHint),
+                obscureText: value.obscureText,
+                decoration: InputDecoration(
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      value.obscureText = !value.obscureText;
+                      setState(() {});
+                    },
+                    icon: Icon(
+                      value.obscureText
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  hintText: StringConstants.passwordHint,
+                ),
               ),
               ElevatedButton(
-                  onPressed: () {
-                    value.login(context);
-                  },
-                  child: Text(StringConstants.signIn)),
-              Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                      onPressed: () {
-                        //TODO Forgot password
-                      },
-                      child: Text(StringConstants.forgotPassword))),
+                onPressed: () {
+                  value.login(context);
+                },
+                child: Text(StringConstants.signIn),
+              ),
+              // Align(
+              //     alignment: Alignment.centerRight,
+              //     child: TextButton(
+              //         onPressed: () {
+              //           //TODO Forgot password
+              //           context.push(RouteConstants.forgotPassword);
+              //         },
+              //         child: Text(StringConstants.forgotPassword))),
               Text.rich(
                 TextSpan(text: StringConstants.newUser, children: [
                   TextSpan(

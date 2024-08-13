@@ -192,6 +192,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                 provider.stories[index];
                                             return StoryCardWidget(
                                                 title: story.title ?? "",
+                                                isApproved: story.approved,
+                                                cancelled: story.cancelled,
                                                 image: story.pic ??
                                                     ImageConstants.errorImage,
                                                 id: story.id ?? 0);
@@ -222,7 +224,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       Text(StringConstants.logOut),
                                     ],
                                   )),
-                              SizedBox(height: height * 0.02),
+                              SizedBox(height: height * 0.12),
                             ],
                           ),
                         )

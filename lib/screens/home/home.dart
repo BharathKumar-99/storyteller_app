@@ -1,7 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:storyteller/constants/image_constnats.dart';
@@ -48,50 +47,59 @@ class _HomeScreenState extends State<HomeScreen> {
                               context.push(RouteConstants.profile);
                             },
                             child: CircleAvatar(
-                              backgroundColor: Colors.grey,
-                              backgroundImage: NetworkImage(
-                                  data.userModel.pic ??
-                                      ImageConstants.errorLogo),
                               radius: 30,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(30),
+                                child: FadeInImage.assetNetwork(
+                                  placeholder: ImageConstants
+                                      .logo, // Local placeholder image
+                                  image: data.userModel.pic ??
+                                      ImageConstants.errorLogo,
+                                  fit: BoxFit.cover,
+                                  imageErrorBuilder:
+                                      (context, error, stackTrace) =>
+                                          const Icon(Icons.warning),
+                                ),
+                              ),
                             ),
                           )
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: TextField(
-                          decoration: InputDecoration(
-                              hintText: StringConstants.search,
-                              contentPadding:
-                                  const EdgeInsets.symmetric(horizontal: 20),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide:
-                                    BorderSide(color: Colors.grey.shade400),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide:
-                                    BorderSide(color: Colors.grey.shade400),
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide:
-                                    BorderSide(color: Colors.grey.shade400),
-                              ),
-                              prefixIconConstraints: const BoxConstraints(
-                                maxHeight: 25,
-                              ),
-                              prefixIcon: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 6.0),
-                                child: SvgPicture.asset(
-                                  'assets/icons/search.svg',
-                                  color: Colors.grey.shade400,
-                                ),
-                              )),
-                        ),
-                      ),
+                      // Padding(
+                      //   padding: const EdgeInsets.all(10.0),
+                      //   child: TextField(
+                      //     decoration: InputDecoration(
+                      //         hintText: StringConstants.search,
+                      //         contentPadding:
+                      //             const EdgeInsets.symmetric(horizontal: 20),
+                      //         enabledBorder: OutlineInputBorder(
+                      //           borderRadius: BorderRadius.circular(8),
+                      //           borderSide:
+                      //               BorderSide(color: Colors.grey.shade400),
+                      //         ),
+                      //         focusedBorder: OutlineInputBorder(
+                      //           borderRadius: BorderRadius.circular(8),
+                      //           borderSide:
+                      //               BorderSide(color: Colors.grey.shade400),
+                      //         ),
+                      //         border: OutlineInputBorder(
+                      //           borderRadius: BorderRadius.circular(8),
+                      //           borderSide:
+                      //               BorderSide(color: Colors.grey.shade400),
+                      //         ),
+                      //         prefixIconConstraints: const BoxConstraints(
+                      //           maxHeight: 25,
+                      //         ),
+                      //         prefixIcon: Padding(
+                      //           padding:
+                      //               const EdgeInsets.symmetric(horizontal: 6.0),
+                      //           child: SvgPicture.asset(
+                      //             'assets/icons/search.svg',
+                      //             color: Colors.grey.shade400,
+                      //           ),
+                      //         )),
+                      //   ),
+                      // ),
                       if (data.continuedStories.isNotEmpty)
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
